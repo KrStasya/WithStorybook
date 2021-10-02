@@ -5,7 +5,7 @@ import {Rating, ratingValue} from "./component/Rating/Rating";
 import OnOff from "./component/OnOff/OnOff";
 import {UncontrolledAccorduon} from "./component/Uncontrolledaccorduon/UncontrlledAccorduon";
 import {UnControlledRating} from "./component/UncontrolledRating/UnControlledRating";
-import UncontrolledOnOff from "./component/OnOff/UncontrolledOnOff";
+import UncontrolledOnOff from "./component/UncontrilledOnOff/UncontrolledOnOff";
 
 function App() {
     let [ratingValue, setratingValue]=useState<ratingValue>(0)

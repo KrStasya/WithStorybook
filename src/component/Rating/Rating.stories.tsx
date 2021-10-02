@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory, ComponentMeta, Story } from '@storybook/react';
 import {Rating, RatingPropsType, ratingValue} from "./Rating";
 import {action} from "@storybook/addon-actions";
 
@@ -7,13 +7,25 @@ import {action} from "@storybook/addon-actions";
 export default {
     title: 'Rating stories',
     component: Rating,
-/*    argTypes: {
+  argTypes: {
         backgroundColor: { control: 'color' },
-},*/
-} as ComponentMeta<typeof Rating>;
-
-/*const Template: ComponentStory<typeof Rating> = (args) => <Rating {...args} />;*/
+     /* table:{
+          category: 'Colors'
+      }*/
+},
+};
 const callback=action("rating changed")
+
+/*const Template: Story<RatingPropsType> = (args) => <Rating {...args} />;
+const callbackProps={
+    onClick: callback
+}
+
+export const RatingChange1=Template.bind({})
+RatingChange1.args={
+    ...callbackProps,
+    value:1,
+}*/
 
 export const EmptyRating = ()=> <Rating value={0} onClick={x=>x}/>;
 export const Rating1 = ()=> <Rating value={1} onClick={callback}/>;
