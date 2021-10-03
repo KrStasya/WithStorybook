@@ -1,51 +1,30 @@
 import React, {useState} from 'react';
 import {Story} from '@storybook/react';
-import {AccordionPropsType, Accorduon} from "./Accorduon";
 import {action} from "@storybook/addon-actions";
+import {Select, SelectPropsType} from './Select';
 
 
 
 export default {
-    title: 'Accorduon stories',
-    component: Accorduon,
-      argTypes: {
-        color: { control: 'color',
-            table:{
-                category: 'Colors'
-            }
-        },
-},
-}
-const callback = action("accordion mode change event")
-
-
-const Template: Story<AccordionPropsType> = (args) => <Accorduon {...args} />;
-const callbackProps={
-    onClick: callback
+    title: 'Select stories',
+    component: Select,
 }
 
-export const Menucollabsed2 = Template.bind({})
-Menucollabsed2.args = {
-    ...callbackProps,
-    titleValue: "Меню",
-    collapsed: true,
-    items:[]
+export const SelectBase:Story<SelectPropsType> = (args) => {
+    let [value,setvalue]=useState<any>(null)
+    return <Select {...args}
+                       value={value}
+                       onClick={()=>setvalue(value)}/>
+}
+SelectBase.args = {
+    items: [
+        {title: "Cat", value: "1"},
+        {title: "Dog", value: "2"},
+        {title: "Bird", value: "3"},
+    ],
 }
 
-export const Usercollabsed2 = Template.bind({})
-Usercollabsed2.args = {
-    ...callbackProps,
-    titleValue: "Users",
-    collapsed: false,
-    items:[
-        {title: "Bob", value:1},
-        {title: "Joe",value:2},
-        {title: "Kristy",value:3},
-        {title: "Anna",value:4},
-    ]
-
-}
-export const Menucollabsed22:Story<AccordionPropsType> = (args) => {
+/*export const Menucollabsed22:Story<AccordionPropsType> = (args) => {
     const [collapsed, setcollabsed] = useState<boolean>(true);
     return <Accorduon {...args} collapsed={collapsed} onClick={()=>setcollabsed(!collapsed)}/>
 }
@@ -71,7 +50,7 @@ Usercollabsed22.args={
         {title: "Kristy",value:3},
         {title: "Anna",value:4},
     ]
-}
+}*/
 
 
 /*
